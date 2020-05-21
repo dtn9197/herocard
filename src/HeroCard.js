@@ -21,10 +21,11 @@ export class HeroCard extends LitElement {
     return css`
         .hero-card {
         position: relative;
-        border: 2px solid red;
+        border: 15px solid rgb(170, 121, 57);
         width: 400px;
         height: 100%;
-        background-color: brown;
+        background-color: grey;
+       
       }
 
       img {
