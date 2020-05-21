@@ -20,13 +20,26 @@ export class HeroCard extends LitElement {
   static get styles() {
     return css`
         .hero-card {
+        position: relative;
         border: 2px solid red;
         width: 400px;
         height: 100%;
+        background-color: brown;
       }
 
       img {
         width: 100%;
+      }
+
+      #logo {
+        display: inline;
+        width: 50px;
+        position: absolute;
+        right: 0px;
+        
+      }
+      h1 {
+        display: inline
       }
 
       .grid-container {
@@ -40,7 +53,8 @@ export class HeroCard extends LitElement {
     return {
       hero: {type: String},
       powers: {type: String},
-      image: {type: String}
+      heroimage: {type: String},
+      universe: {type: String}
 
     };
   }
@@ -50,16 +64,25 @@ export class HeroCard extends LitElement {
     super();
     this.hero = "";
     this.powers = "";
-    this.image = "";
+    this.heroimage = "";
+    this.universe = "";
   }
 
   render() {
     var powers = this.powers.split(",");
+    var universe = this.universe.toLowerCase();
+    var logoUsed;
+    if(universe == "dc")
+      logoUsed = "assets/dclogo.jpg";
+    else if(universe == "marvel")
+      logoUsed = "assets/marvellogo.jpg";
+      
+    
     return html`
      <div class="hero-card">
-      <h1>${this.hero}<h1>
+      <h1>${this.hero}<h1><img id="logo" src=${logoUsed}>
         <hr>
-        <img src=${this.image} alt="">
+        <img id ="heroimage" src=${this.heroimage} alt="">
         <h2>Description</h2>
         <hr>
         <slot name="description">
