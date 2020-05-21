@@ -6,6 +6,7 @@ class MyElement extends LitElement {
       /* Selects the host */
       :host { 
         display: block; 
+        width: 400px;
       }
 
       /* Selects the host element if it is hidden */
@@ -17,6 +18,11 @@ class MyElement extends LitElement {
       :host(.blue) { 
         background-color: aliceblue;
         color: blue;
+        width: 800px;
+      }
+
+      :host(.blue) p {
+          color: red;
       }
     `;
   }

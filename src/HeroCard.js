@@ -32,8 +32,10 @@ export class HeroCard extends SimpleColors {
         background-size: cover;
         background-position: center;
         color: white;
-        
+
       }
+
+      
 
       .hero-card * {
         margin: 0px;
