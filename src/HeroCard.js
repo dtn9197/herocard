@@ -26,8 +26,6 @@ export class HeroCard extends SimpleColors {
         border: 5px solid rgb(8, 37, 218 );
         width: 400px;
         height: 100%;
-        /* background-color: black; */
-        /* background-image: url("../demo/assets/background2.jpg"); */
         background-color: black;
         background-size: cover;
         background-position: center;
@@ -37,6 +35,7 @@ export class HeroCard extends SimpleColors {
 
       
 
+  
       .hero-card * {
         margin: 0px;
       }
@@ -126,7 +125,6 @@ export class HeroCard extends SimpleColors {
       
     
     return html`
-    
         <div class="hero-card">
           <section id="header">
               <h1 id="heroname">${this.hero}</h1>
@@ -153,7 +151,6 @@ export class HeroCard extends SimpleColors {
             </section>
 
             <section id="footer"></section>
-            
         </div>
     `;
   }
