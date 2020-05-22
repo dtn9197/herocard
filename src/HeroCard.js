@@ -21,40 +21,79 @@ export class HeroCard extends SimpleColors {
 
   static get styles() {
     return css`
-        .hero-card {
+       
+      :host {
+        display: block;
         position: relative;
-        border: 5px solid rgb(8, 37, 218 );
         width: 400px;
         height: 100%;
         background-color: black;
         background-size: cover;
         background-position: center;
         color: white;
-
       }
 
-      
-
-  
-      .hero-card * {
+      :host * {
         margin: 0px;
       }
 
-      #footer {
-        background-image: url("../demo/assets/background2.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 25px;
+      :host([universe="dc"]) {
+        border: 5px solid rgb(8, 37, 218 );
       }
 
-      #header {
+      :host([universe="dc"]) #heroimage {
+        border-top: 3px solid rgb(31, 142, 175);
+        border-bottom: 3px solid rgb(31, 142, 175);
+        width: 100%;
+      }
+
+      :host([universe="dc"]) hr {
+        border-bottom: 3px solid rgb(31, 142, 175);
+      }
+
+      :host([universe="dc"]) #header  {
         background-image: url("../demo/assets/background2.jpg");
         background-size: cover;
         background-position: center;
         height: 75px;
       }
 
-      
+      :host([universe="dc"]) #footer  {
+        background-image: url("../demo/assets/background2.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 25px;
+      }
+
+      :host([universe="marvel"])  {
+        border: 5px solid red;
+      }
+
+      :host([universe="marvel"]) #header  {
+        background-image: url("../demo/assets/marvel1.jpg");
+        background-size: cover;
+        background-position: center;
+        
+        height: 75px;
+      }
+
+      :host([universe="marvel"]) #footer  {
+        background-image: url("../demo/assets/marvel1.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 25px;
+      }
+
+      :host([universe="marvel"]) hr  {
+        border-bottom: 3px solid rgb(247, 125, 12);
+      }
+
+      :host([universe="marvel"]) #heroimage  {
+        border-top: 3px solid rgb(247, 125, 12);
+        border-bottom: 3px solid rgb(247, 125, 12);
+        width: 100%;
+      }
+
       #heroimage {
         border-top: 3px solid rgb(31, 142, 175);
         border-bottom: 3px solid rgb(31, 142, 175);
@@ -72,9 +111,6 @@ export class HeroCard extends SimpleColors {
         color: rgb(108, 187, 249 );
       }
 
-      hr {
-        border-bottom: 3px solid rgb(31, 142, 175);
-      }
 
       #logo {
         width: 50px;
@@ -125,33 +161,30 @@ export class HeroCard extends SimpleColors {
       
     
     return html`
-        <div class="hero-card">
-          <section id="header">
-              <h1 id="heroname">${this.hero}</h1>
-              <img id="logo" src=${logoUsed}>
-              <h2 id="type">${this.type}</h2>
-          </section>
-            <img id ="heroimage" src=${this.heroimage} alt="">
+      <section id="header">
+          <h1 id="heroname">${this.hero}</h1>
+          <img id="logo" src=${logoUsed}>
+          <h2 id="type">${this.type}</h2>
+      </section>
+        <img id ="heroimage" src=${this.heroimage} alt="">
 
-            <section id="content">
-                <h2>Description</h2>
-                <hr>
-                <slot name="description">
-                </slot>
-            
-                <h2>Powers</h2>
-                <hr>
-                <ul>
-                  <div class="grid-container">
-                    ${powers.map(power => 
-                      html`<li class="grid-item"> ${power} </li>`
-                      )}
-                  </div>
-                </ul>
-            </section>
-
-            <section id="footer"></section>
-        </div>
+        <section id="content">
+            <h2>Description</h2>
+            <hr>
+            <slot name="description">
+            </slot>
+        
+            <h2>Powers</h2>
+            <hr>
+            <ul>
+              <div class="grid-container">
+                ${powers.map(power => 
+                  html`<li class="grid-item"> ${power} </li>`
+                  )}
+              </div>
+            </ul>
+        </section>
+        <section id="footer"></section>
     `;
   }
 
