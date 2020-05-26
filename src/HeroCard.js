@@ -137,6 +137,9 @@ export class HeroCard extends SimpleColors {
         background-size: cover; 
         background-position: center; 
       }
+
+
+
       /**preset for marvel hero cards */
       :host([universe="marvel"])  {
         border: 5px solid var(--cardborder-style, orange);
@@ -151,14 +154,13 @@ export class HeroCard extends SimpleColors {
       :host([universe="marvel"]) #header  {
         background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
         background-size: cover;
-        /* background-position: center; */
+        
         
       }
 
       :host([universe="marvel"]) #footer  {
         background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
         background-size: cover;
-        /* background-position: center; */
       }
 
       :host([universe="marvel"]) hr  {
@@ -184,7 +186,6 @@ export class HeroCard extends SimpleColors {
     super();
     this.name = "";
     this.powers = "";
-    this.heroimage = "";
     this.universe = "";
     this.type = "";
   }
@@ -218,7 +219,6 @@ export class HeroCard extends SimpleColors {
             <hr>
             
               <div class="grid-container">
-                
                 ${powers.map(power => 
                   html`<span class="grid-item"> ${power} </span>`
                   )}
