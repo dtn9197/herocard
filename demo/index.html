@@ -3,8 +3,58 @@
 <head>
   <meta charset="utf-8">
   <style>
-    body {
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+    }
+
+    #greenlantern {
+      --name-style: white;
+      --nameshadow-style: 5px 5px 15px rgb(31, 255, 0);
+
+      --herotype-style: white;
+      /* --herotypeshadow-style:     ; */
+
+      --descriptionoutline-style: green;
       
+
+
+      --descriptionheader-style: white;
+      --descriptionheadershadow-style: 5px 5px 15px rgb(31, 255, 0);
+
+      --powersheader-style: white;
+      /* --powersheadershadow-style: ; */
+
+      /* --descriptionbackground-style: rgba(14, 70, 6); */
+      --headerimage-style: url("assets/greenlanternheader.jpg") ;
+
+      --cardborder-style: rgb(31, 255, 0);
+      --imageborder-style: green;
+    }
+
+    #deathstroke {
+      --name-style: rgb(255, 162, 0 );
+      --nameshadow-style: 5px 5px 15px rgb(255, 162, 0 );
+
+
+      --descriptionheader-style: rgb(255, 162, 0 );
+      --descriptionheadershadow-style: 5px 5px 15px rgb(255, 162, 0 );
+
+      --powersheader-style: rgb(255, 162, 0 );
+      --descriptionbackground-style: rgba(40, 27, 5 );
+    }
+
+    #ultron{
+      --name-style: rgb(247, 69, 69 );
+      --nameshadow-style: 5px 5px 15px rgb(247, 69, 69);
+
+
+      --descriptionheader-style: rgb(247, 69, 69);
+      --descriptionheadershadow-style: 5px 5px 15px rgb(247, 69, 69);
+
+      --powersheader-style: rgb(247, 69, 69);
+
+      --descriptionbackground-style: rgba(66, 20, 20 );
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap" rel="stylesheet">
@@ -13,17 +63,44 @@
 
 <body>
   <div id="demo"></div>
-  <hero-card hero="Superman" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/superman.jpg" universe="dc" type="Hero" >
-    <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
-  </hero-card>
-  <hr>
-  <hero-card hero="Ironman" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/ironman.jpg" universe="marvel" type="Hero" >
-    <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
-  </hero-card>
-  <hr>
-  <hero-card hero="Ironman" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/ironman.jpg" universe="marvel" type="Hero" >
-    <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
-  </hero-card>
+
+  <div class="grid-container">
+    <div class="grid-item">
+      <hero-card name="Superman" powers=" Something, SOmething, SOmething, Something" heroimage="assets/superman.jpg" universe="dc" type="Heros" >
+        <img slot="heroimage" src="assets/superman.jpg" alt="">
+        <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+      </hero-card>
+    </div>
+    <div class="grid-item">
+      <hero-card name="Ironman" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something, something, something,something" universe="marvel" type="Hero" >
+        <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+        <img slot="heroimage" src="assets/ironman.jpg" alt="">
+        <span id="powers">power1, power2, power3</span>
+        
+      </hero-card>
+    </div>
+    <div class="grid-item">
+      <hero-card id="greenlantern"name="Green Lantern" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" universe="dc"type="Hero" >
+        <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+        <img slot="heroimage" src="assets/greenlantern.jpg" alt="">
+      </hero-card>
+    </div>
+    <div class="grid-item">
+      <hero-card id="deathstroke"name="DeathStroke" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/deathstroke.jpg" universe="dc"type="Villain" >
+        <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+      </hero-card>
+    </div>
+    <div class="grid-item">
+      <hero-card id="ultron"name="Ultron" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/ultron.jpg" universe="marvel"type="Villain" >
+        <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+      </hero-card>
+    </div>
+
+    
+  </div>
+  
+  
+  
 
   
 

@@ -21,97 +21,130 @@ export class HeroCard extends SimpleColors {
 
   static get styles() {
     return css`
-       
       :host {
         display: block;
         position: relative;
-        width: 400px;
-        height: 100%;
-        background-color: black;
+        width: 250px;
+        height: auto;
+        background-color: var(--descriptionbackground-style,black);
         background-size: cover;
         background-position: center;
         color: white;
+        font-size: 0.9rem;
+        border: 5px solid grey;
       }
 
-      :host * {
+      #header {
+        height: 50px;
+      }
+
+      #footer {
+        height: 25px;
+      }
+
+      ::slotted(img) {
+        border-top: 3px solid var(--imageborder-style, grey);
+        border-bottom: 3px solid var(--imageborder-style, grey);
+        width: 100%;
+        height: 125px;
+      }
+      
+
+      ::slotted(p) {
+        height: 100px;
+        overflow: auto;
         margin: 0px;
       }
 
-      :host([universe="dc"]) {
-        border: 5px solid rgb(8, 37, 218 );
+      .grid-container {
+        height: 50px;
+        overflow: auto;
       }
 
-      :host([universe="dc"]) #heroimage {
+      * {
+        margin: 0px;
+      }
+
+      #heroname {
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
+        color: var(--name-style);
+        text-shadow: var(--nameshadow-style);
+      }
+
+      #type {
+        color: var(--herotype-style);
+        text-shadow: var(--herotypeshadow-style);
+      }
+
+      #descriptionheader{
+        color: var(--descriptionheader-style);
+        text-shadow: var(--descriptionheadershadow-style);
+
+      }
+
+      #powersheader{
+        color: var(--powersheader-style);
+        text-shadow: var(--powersheaderhadow-style);
+      }
+
+
+      :host([universe="dc"]) {
+        border: 5px solid var(--cardborder-style, blue);
+      }
+
+      :host([universe="dc"]) ::slotted(img) {
         border-top: 3px solid rgb(31, 142, 175);
         border-bottom: 3px solid rgb(31, 142, 175);
         width: 100%;
       }
 
       :host([universe="dc"]) hr {
-        border-bottom: 3px solid rgb(31, 142, 175);
+        border-bottom: 3px solid var(--descriptionoutline-style,rgb(31, 142, 175));
       }
 
       :host([universe="dc"]) #header  {
-        background-image: url("../demo/assets/background2.jpg");
+        background-image: var(--headerimage-style, url("../demo/assets/dcuniverse.jpg"));
         background-size: cover;
         background-position: center;
-        height: 75px;
       }
 
       :host([universe="dc"]) #footer  {
-        background-image: url("../demo/assets/background2.jpg");
+        background-image: var(--headerimage-style, url("../demo/assets/dcuniverse.jpg"));
         background-size: cover;
         background-position: center;
-        height: 25px;
       }
 
       :host([universe="marvel"])  {
-        border: 5px solid red;
+        border: 5px solid var(--cardborder-style, orange);
       }
 
-      :host([universe="marvel"]) #header  {
-        background-image: url("../demo/assets/marvel1.jpg");
-        background-size: cover;
-        background-position: center;
-        
-        height: 75px;
-      }
-
-      :host([universe="marvel"]) #footer  {
-        background-image: url("../demo/assets/marvel1.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 25px;
-      }
-
-      :host([universe="marvel"]) hr  {
-        border-bottom: 3px solid rgb(247, 125, 12);
-      }
-
-      :host([universe="marvel"]) #heroimage  {
+      :host([universe="marvel"]) ::slotted(img) {
         border-top: 3px solid rgb(247, 125, 12);
         border-bottom: 3px solid rgb(247, 125, 12);
         width: 100%;
       }
 
-      #heroimage {
-        border-top: 3px solid rgb(31, 142, 175);
-        border-bottom: 3px solid rgb(31, 142, 175);
-        width: 100%;
-      }
-      #heroname {
-        text-transform: uppercase;
-        font-family: Arial, Helvetica, sans-serif;
-        font-style: italic;
-        color: rgb(241, 201, 20)
+      :host([universe="marvel"]) #header  {
+        background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
+        background-size: cover;
+        background-position: center;
+        
       }
 
-      #type {
-        margin: 0px;
-        color: rgb(108, 187, 249 );
+      :host([universe="marvel"]) #footer  {
+        background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
+        background-size: cover;
+        background-position: center;
+      }
+
+      :host([universe="marvel"]) hr  {
+        border-bottom: 3px solid var(--descriptionoutline-style, rgb(247, 125, 12));
       }
 
 
+      
       #logo {
         width: 50px;
         position: absolute;
@@ -122,20 +155,25 @@ export class HeroCard extends SimpleColors {
         display: inline
       }
 
+      ul {
+        padding: 5px;
+      }
+
       .grid-container {
         display: grid;
         grid-template-columns: auto auto auto;
+        grid-column-gap: 15px;
       }
     `;
   }
 
   static get properties() {
     return {
-      hero: {type: String},
+      name: {type: String},
       powers: {type: String},
       heroimage: {type: String},
       universe: {type: String},
-      type: {type: String}
+      type: {type: String},
 
     };
   }
@@ -143,7 +181,7 @@ export class HeroCard extends SimpleColors {
 
   constructor() {
     super();
-    this.hero = "";
+    this.name = "";
     this.powers = "";
     this.heroimage = "";
     this.universe = "";
@@ -158,32 +196,33 @@ export class HeroCard extends SimpleColors {
       logoUsed = "assets/dclogo.jpg";
     else if(universe == "marvel")
       logoUsed = "assets/marvellogo.jpg";
-      
+  
     
+  
     return html`
       <section id="header">
-          <h1 id="heroname">${this.hero}</h1>
+          <h1 id="heroname">${this.name}</h1>
           <img id="logo" src=${logoUsed}>
           <h2 id="type">${this.type}</h2>
       </section>
-        <img id ="heroimage" src=${this.heroimage} alt="">
-
-        <section id="content">
-            <h2>Description</h2>
+        <!-- <img id ="heroimage" src=${this.heroimage} alt=""> -->
+        <slot id="heroimage" name="heroimage"></slot>
+            <h2 id="descriptionheader">Description</h2>
             <hr>
             <slot name="description">
             </slot>
-        
-            <h2>Powers</h2>
             <hr>
-            <ul>
+        
+            <h2 id="powersheader">Powers</h2>
+            <hr>
+            
               <div class="grid-container">
+                
                 ${powers.map(power => 
-                  html`<li class="grid-item"> ${power} </li>`
+                  html`<span class="grid-item"> ${power} </span>`
                   )}
               </div>
-            </ul>
-        </section>
+            <hr>
         <section id="footer"></section>
     `;
   }
