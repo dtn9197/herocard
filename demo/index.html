@@ -5,56 +5,98 @@
   <style>
     .grid-container {
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto auto auto;
+      grid-row-gap: 25px;
     }
 
-    #greenlantern {
-      --name-style: white;
-      --nameshadow-style: 5px 5px 15px rgb(31, 255, 0);
+    body {
+      background-color: grey;
+    }
 
-      --herotype-style: white;
-      /* --herotypeshadow-style:     ; */
 
-      --descriptionoutline-style: green;
+    #Batman {
+      --headerimage-style: url("assets/background2.jpg");
+      --imageborder-style: rgb(87, 109, 208);
+      --descriptionoutline-style: rgb(87, 109, 208);
+      --cardborder-style: rgb(29, 37, 77);
+
+      --name-style: rgb(67, 114, 224);
+      --descriptionheader-style: rgb(67, 114, 224);
+      --powersheader-style: rgb(67, 114, 224);
+      --herotype-style: rgb(67, 114, 224);
+    }
+
+    #Ironman {
+      --headerimage-style: url("assets/ironmanheader.jpg");
+      --descriptionoutline-style: rgb(243, 182, 0 );
+      --descriptionheader-style: rgb(243, 240, 0 );
+      --name-style: rgb(243, 240, 0  );
+      --herotype-style: rgb(243, 240, 0 );
+      --powersheader-style: rgb(243, 240, 0 );
+    }
+
+
+    
+
+    #Atrocitus {
+      --name-style: rgb(243, 0, 0 );
+      --nameshadow-style: 2px 2px 10px red;
+
+      --herotype-style: rgb(243, 0, 0 );
+      --herotypeshadow-style: 2px 2px 10px red,
+      2px 2px 10px red;
+
+      --descriptionoutline-style: rgb(115, 24, 24 );
       
 
 
-      --descriptionheader-style: white;
-      --descriptionheadershadow-style: 5px 5px 15px rgb(31, 255, 0);
+      --descriptionheader-style: rgb(243, 0, 0 );
+      --descriptionheadershadow-style: 2px 2px 15px red,
+      2px 2px 15px red
+      ;
 
-      --powersheader-style: white;
-      /* --powersheadershadow-style: ; */
+      --powersheader-style: rgb(243, 0, 0 );
+      --powersheadershadow-style: 2px 2px 15px red, 
+      2px 2px 15px red;
+      
 
       /* --descriptionbackground-style: rgba(14, 70, 6); */
-      --headerimage-style: url("assets/greenlanternheader.jpg") ;
+      --headerimage-style: url("assets/atrocitusheader.jpg") ;
 
-      --cardborder-style: rgb(31, 255, 0);
-      --imageborder-style: green;
+      --cardborder-style: rgb(243, 0, 0 );
+      --imageborder-style: rgb(186, 76, 76 );
     }
 
-    #deathstroke {
-      --name-style: rgb(255, 162, 0 );
-      --nameshadow-style: 5px 5px 15px rgb(255, 162, 0 );
+    #Thanos {
+      --name-style: rgb(243, 0, 0 );
+      --nameshadow-style: 5px 5px 15px rgb(243, 0, 0 ),
+      5px 5px 15px rgb(243, 0, 0 )
+      ;
+
+      --herotype-style: rgb(18, 0, 242);
+      --herotypeshadow-style: 5px 5px 15px rgb(18, 0, 242),
+      5px 5px 15px rgb(18, 0, 242),
+      5px 5px 15px rgb(18, 0, 242);
 
 
-      --descriptionheader-style: rgb(255, 162, 0 );
-      --descriptionheadershadow-style: 5px 5px 15px rgb(255, 162, 0 );
+      --descriptionheader-style: rgb(33, 242, 0 );
+      --descriptionheadershadow-style: 5px 5px 15px rgb(33, 242, 0 ),
+      5px 5px 15px rgb(33, 242, 0 );
 
       --powersheader-style: rgb(255, 162, 0 );
-      --descriptionbackground-style: rgba(40, 27, 5 );
+      --powersheadershadow-style: 5px 5px 15px rgb(255, 162, 0 ),
+      5px 5px 15px rgb(255, 162, 0 );
+      --headerimage-style: url("assets/thanosheader.png") ;
+      --descriptionbackground-style: rgb(42, 30, 70);
+
+      --cardborder-style: rgb(255, 243, 0 );
+      --textcolor-style: rgb(255, 140, 194 );
+      --textshadow-style: 5px 5px 15px rgb(255, 140, 194 );
+
     }
 
-    #ultron{
-      --name-style: rgb(247, 69, 69 );
-      --nameshadow-style: 5px 5px 15px rgb(247, 69, 69);
-
-
-      --descriptionheader-style: rgb(247, 69, 69);
-      --descriptionheadershadow-style: 5px 5px 15px rgb(247, 69, 69);
-
-      --powersheader-style: rgb(247, 69, 69);
-
-      --descriptionbackground-style: rgba(66, 20, 20 );
+    #Superman{
+      --headerimage-style: url("assets/supermanheader.png");
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap" rel="stylesheet">
@@ -66,13 +108,13 @@
 
   <div class="grid-container">
     <div class="grid-item">
-      <hero-card name="Superman" powers=" Something, SOmething, SOmething, Something" heroimage="assets/superman.jpg" universe="dc" type="Heros" >
-        <img slot="heroimage" src="assets/superman.jpg" alt="">
+      <hero-card id="Batman" name="Batman" powers="Master Spy, Genius-Level Intellect, Master Martial Artist, Peak Human Conditioning, Expert Acrobat, Intimidation" universe="dc" type="Hero" >
+        <img slot="heroimage" src="assets/batman.jpg" alt="">
         <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
       </hero-card>
     </div>
     <div class="grid-item">
-      <hero-card name="Ironman" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something, something, something,something" universe="marvel" type="Hero" >
+      <hero-card  id="Ironman" name="Ironman" powers="Master Engineer, Super-Genius Intellect, Expert Tactician, Skilled Combatant " universe="marvel" type="Hero" >
         <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
         <img slot="heroimage" src="assets/ironman.jpg" alt="">
         <span id="powers">power1, power2, power3</span>
@@ -80,20 +122,23 @@
       </hero-card>
     </div>
     <div class="grid-item">
-      <hero-card id="greenlantern"name="Green Lantern" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" universe="dc"type="Hero" >
+      <hero-card id="Atrocitus"name="Atrocitus" powers="Boundless Rage, Blood Magic, Power Ring, Flight, Super Strength" universe="dc"type="Villain" >
         <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
-        <img slot="heroimage" src="assets/greenlantern.jpg" alt="">
+        <img slot="heroimage" src="assets/atrocitus.jpg" alt="">
       </hero-card>
     </div>
     <div class="grid-item">
-      <hero-card id="deathstroke"name="DeathStroke" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/deathstroke.jpg" universe="dc"type="Villain" >
+      <hero-card id="Thanos"name="Thanos" powers="Infinity Gauntlet, Super Strength, Energy Absorption, Space Manipulation, Reality Manipulation" universe="marvel"type="Villain" >
         <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+        <img slot="heroimage"src="assets/thanos.jpg" alt="">
       </hero-card>
     </div>
     <div class="grid-item">
-      <hero-card id="ultron"name="Ultron" powers="Flight, Super Strength, Something, Something, SOmething, SOmething, Something" heroimage="assets/ultron.jpg" universe="marvel"type="Villain" >
+      <hero-card id="Superman"name="Superman" powers="Flight, Super Strength, Laser, Frost Breath" universe="dc" type="hero" >
         <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
+        <img slot="heroimage" src="assets/superman.jpg" alt="">
       </hero-card>
+
     </div>
 
     

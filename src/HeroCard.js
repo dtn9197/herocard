@@ -29,9 +29,10 @@ export class HeroCard extends SimpleColors {
         background-color: var(--descriptionbackground-style,black);
         background-size: cover;
         background-position: center;
-        color: white;
+        color: var(--textcolor-style, white);
+        text-shadow: var(--textshadow-style);
         font-size: 0.9rem;
-        border: 5px solid grey;
+        border: 5px solid var(--cardborder-style, grey);
       }
 
       #header {
@@ -54,6 +55,10 @@ export class HeroCard extends SimpleColors {
         height: 100px;
         overflow: auto;
         margin: 0px;
+      }
+
+      hr {
+        border-bottom: 3px solid var(--descriptionoutline-style, pink);
       }
 
       .grid-container {
@@ -86,17 +91,34 @@ export class HeroCard extends SimpleColors {
 
       #powersheader{
         color: var(--powersheader-style);
-        text-shadow: var(--powersheaderhadow-style);
+        text-shadow: var(--powersheadershadow-style);
       }
 
+      #logo {
+        width: 50px;
+        position: absolute;
+        right: 0px;
+        
+      }
+      h1 {
+        display: inline
+      }
 
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-column-gap: 15px;
+        grid-row-gap: 10px;
+      }
+
+      /*preset for dc hero cards */
       :host([universe="dc"]) {
         border: 5px solid var(--cardborder-style, blue);
       }
 
       :host([universe="dc"]) ::slotted(img) {
-        border-top: 3px solid rgb(31, 142, 175);
-        border-bottom: 3px solid rgb(31, 142, 175);
+        border-top: 3px solid var(--imageborder-style, rgb(31, 142, 175));
+        border-bottom: 3px solid var(--imageborder-style, rgb(31, 142, 175));
         width: 100%;
       }
 
@@ -107,15 +129,15 @@ export class HeroCard extends SimpleColors {
       :host([universe="dc"]) #header  {
         background-image: var(--headerimage-style, url("../demo/assets/dcuniverse.jpg"));
         background-size: cover;
-        background-position: center;
+        background-position: center; 
       }
 
       :host([universe="dc"]) #footer  {
         background-image: var(--headerimage-style, url("../demo/assets/dcuniverse.jpg"));
-        background-size: cover;
-        background-position: center;
+        background-size: cover; 
+        background-position: center; 
       }
-
+      /**preset for marvel hero cards */
       :host([universe="marvel"])  {
         border: 5px solid var(--cardborder-style, orange);
       }
@@ -129,41 +151,21 @@ export class HeroCard extends SimpleColors {
       :host([universe="marvel"]) #header  {
         background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
         background-size: cover;
-        background-position: center;
+        /* background-position: center; */
         
       }
 
       :host([universe="marvel"]) #footer  {
         background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
         background-size: cover;
-        background-position: center;
+        /* background-position: center; */
       }
 
       :host([universe="marvel"]) hr  {
         border-bottom: 3px solid var(--descriptionoutline-style, rgb(247, 125, 12));
       }
 
-
       
-      #logo {
-        width: 50px;
-        position: absolute;
-        right: 0px;
-        
-      }
-      h1 {
-        display: inline
-      }
-
-      ul {
-        padding: 5px;
-      }
-
-      .grid-container {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-column-gap: 15px;
-      }
     `;
   }
 
@@ -171,7 +173,6 @@ export class HeroCard extends SimpleColors {
     return {
       name: {type: String},
       powers: {type: String},
-      heroimage: {type: String},
       universe: {type: String},
       type: {type: String},
 
