@@ -177,7 +177,8 @@ export class HeroCard extends SimpleColors {
       powers: {type: String},
       universe: {type: String},
       type: {type: String},
-
+      basePath:{type: String},
+      headerimage: {type: String}
     };
   }
 
@@ -188,26 +189,36 @@ export class HeroCard extends SimpleColors {
     this.powers = "";
     this.universe = "";
     this.type = "";
+    this.basePath = this.pathFromUrl(decodeURIComponent(import.meta.url));
+    this.headerimage = `${this.basePath}../demo/assets/marvel1.jpg`;
+  }
+
+  pathFromUrl(url) {
+    return url.substring(0, url.lastIndexOf("/") + 1);
   }
 
   render() {
     var powers = this.powers.split(",");
     var universe = this.universe.toLowerCase();
     var logoUsed;
+    //this line returns the directory of the HeroCard.js: http://localhost:8000/src/
+    const basePath = this.pathFromUrl(decodeURIComponent(import.meta.url));
+    const headerImage = `${basePath}../demo/assets/marvel1.jpg`;
+    console.log(headerImage);
+  
+    
     if(universe == "dc")
       logoUsed = "assets/dclogo.jpg";
     else if(universe == "marvel")
       logoUsed = "assets/marvellogo.jpg";
   
     
-  
     return html`
       <section id="header">
           <h1 id="heroname">${this.name}</h1>
           <img id="logo" src=${logoUsed}>
           <h2 id="type">${this.type}</h2>
       </section>
-        <!-- <img id ="heroimage" src=${this.heroimage} alt=""> -->
         <slot id="heroimage" name="heroimage"></slot>
             <h2 id="descriptionheader">Description</h2>
             <hr>
@@ -229,6 +240,8 @@ export class HeroCard extends SimpleColors {
   }
 
 }
+
+// decodeURIComponent(import.meta);
 
 
 
