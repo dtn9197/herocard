@@ -26,13 +26,13 @@ export class HeroCard extends SimpleColors {
         position: relative;
         width: 250px;
         height: auto;
-        background-color: var(--descriptionbackground-style,black);
+        background-color: var(--hero-card-description-background-color,var(--simple-colors-default-theme-accent-12, #000000));
         background-size: cover;
         background-position: center;
-        color: var(--textcolor-style, white);
-        text-shadow: var(--textshadow-style);
+        color: var(--simple-colors-default-theme-grey-1, #FFFFFF);
+        text-shadow: var(--hero-card-text-shadow);
         font-size: 0.9rem;
-        border: 5px solid var(--cardborder-style, grey);
+        border: 5px solid var(--hero-card-border, var(--simple-colors-default-theme-accent-4, #FFFFFF));
       }
 
       #header {
@@ -44,8 +44,8 @@ export class HeroCard extends SimpleColors {
       }
 
       ::slotted(img) {
-        border-top: 3px solid var(--imageborder-style, grey);
-        border-bottom: 3px solid var(--imageborder-style, grey);
+        border-top: 3px solid var(--hero-card-border, var(--simple-colors-default-theme-accent-5, #FFFFFF));
+        border-bottom: 3px solid var(--hero-card-border, var(--simple-colors-default-theme-accent-5, #FFFFFF));
         width: 100%;
         height: 125px;
       }
@@ -58,7 +58,7 @@ export class HeroCard extends SimpleColors {
       }
 
       hr {
-        border-bottom: 3px solid var(--descriptionoutline-style, pink);
+        border-bottom: 3px solid var(--hero-card-description-border, var(--simple-colors-default-theme-grey-1, #FFFFFF));
       }
 
       .grid-container {
@@ -74,24 +74,24 @@ export class HeroCard extends SimpleColors {
         text-transform: uppercase;
         font-family: Arial, Helvetica, sans-serif;
         font-style: italic;
-        color: var(--name-style);
-        text-shadow: var(--nameshadow-style);
+        color: var(--hero-card-name-color);
+        text-shadow: var(--hero-card-name-shadow);
       }
 
       #type {
-        color: var(--herotype-style);
-        text-shadow: var(--herotypeshadow-style);
+        color: var(--hero-card-herotype-color);
+        text-shadow: var(--hero-card-herotype-shadow);
       }
 
       #descriptionheader{
-        color: var(--descriptionheader-style);
-        text-shadow: var(--descriptionheadershadow-style);
+        color: var(--hero-card-description-header-color);
+        text-shadow: var(--hero-card-description-header-shadow);
 
       }
 
       #powersheader{
-        color: var(--powersheader-style);
-        text-shadow: var(--powersheadershadow-style);
+        color: var(--hero-card-powers-headers-color);
+        text-shadow: var(--hero-card-powers-headers-shadow);
       }
 
       #logo {
@@ -113,27 +113,27 @@ export class HeroCard extends SimpleColors {
 
       /*preset for dc hero cards */
       :host([universe="dc"]) {
-        border: 5px solid var(--cardborder-style, blue);
+        border: 5px solid var(--hero-card-border, var(--simple-colors-default-theme-indigo-11, #FFFFFF));
       }
 
       :host([universe="dc"]) ::slotted(img) {
-        border-top: 3px solid var(--imageborder-style, rgb(31, 142, 175));
-        border-bottom: 3px solid var(--imageborder-style, rgb(31, 142, 175));
+        border-top: 3px solid var(--hero-card-border, var(--simple-colors-default-theme-indigo-9, #FFFFFF));
+        border-bottom: 3px solid var(--hero-card-border, var(--simple-colors-default-theme-indigo-9, #FFFFFF));
         width: 100%;
       }
 
       :host([universe="dc"]) hr {
-        border-bottom: 3px solid var(--descriptionoutline-style,rgb(31, 142, 175));
+        border-bottom: 3px solid var(--hero-card-description-border, var(--simple-colors-default-theme-blue-7, #FFFFFF));
       }
 
       :host([universe="dc"]) #header  {
-        background-image: var(--headerimage-style, url("../demo/assets/dcuniverse.jpg"));
+        background-image: var(--hero-card-header-image, url("../demo/assets/dcuniverse.jpg"));
         background-size: cover;
         background-position: center; 
       }
 
       :host([universe="dc"]) #footer  {
-        background-image: var(--headerimage-style, url("../demo/assets/dcuniverse.jpg"));
+        background-image: var(--hero-card-header-image, url("../demo/assets/dcuniverse.jpg"));
         background-size: cover; 
         background-position: center; 
       }
@@ -142,29 +142,29 @@ export class HeroCard extends SimpleColors {
 
       /**preset for marvel hero cards */
       :host([universe="marvel"])  {
-        border: 5px solid var(--cardborder-style, orange);
+        border: 5px solid var(--hero-card-border, var(--simple-colors-default-theme-orange-6));
       }
 
       :host([universe="marvel"]) ::slotted(img) {
-        border-top: 3px solid rgb(247, 125, 12);
-        border-bottom: 3px solid rgb(247, 125, 12);
+        border-top: 3px solid var(--simple-colors-default-theme-orange-4);
+        border-bottom: 3px solid var(--simple-colors-default-theme-orange-4);
         width: 100%;
       }
 
       :host([universe="marvel"]) #header  {
-        background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
+        background-image: var(--hero-card-header-image,url("../demo/assets/marvel1.jpg"));
         background-size: cover;
         
         
       }
 
       :host([universe="marvel"]) #footer  {
-        background-image: var(--headerimage-style,url("../demo/assets/marvel1.jpg"));
+        background-image: var(--hero-card-header-image, url("../demo/assets/marvel1.jpg"));
         background-size: cover;
       }
 
       :host([universe="marvel"]) hr  {
-        border-bottom: 3px solid var(--descriptionoutline-style, rgb(247, 125, 12));
+        border-bottom: 3px solid var(--hero-card-description-border, var(--simple-colors-default-theme-orange-4));
       }
 
       
@@ -172,7 +172,9 @@ export class HeroCard extends SimpleColors {
   }
 
   static get properties() {
+    
     return {
+      ...super.properties,
       name: {type: String},
       powers: {type: String},
       universe: {type: String},
@@ -189,24 +191,17 @@ export class HeroCard extends SimpleColors {
     this.powers = "";
     this.universe = "";
     this.type = "";
-    this.basePath = this.pathFromUrl(decodeURIComponent(import.meta.url));
-    this.headerimage = `${this.basePath}../demo/assets/marvel1.jpg`;
+   
+    
   }
 
-  pathFromUrl(url) {
-    return url.substring(0, url.lastIndexOf("/") + 1);
-  }
-
+  
   render() {
     var powers = this.powers.split(",");
     var universe = this.universe.toLowerCase();
     var logoUsed;
-    //this line returns the directory of the HeroCard.js: http://localhost:8000/src/
-    const basePath = this.pathFromUrl(decodeURIComponent(import.meta.url));
-    const headerImage = `${basePath}../demo/assets/marvel1.jpg`;
-    console.log(headerImage);
-  
     
+  
     if(universe == "dc")
       logoUsed = "assets/dclogo.jpg";
     else if(universe == "marvel")
@@ -214,34 +209,33 @@ export class HeroCard extends SimpleColors {
   
     
     return html`
-      <section id="header">
+      <section  id="header">
           <h1 id="heroname">${this.name}</h1>
           <img id="logo" src=${logoUsed}>
           <h2 id="type">${this.type}</h2>
       </section>
-        <slot id="heroimage" name="heroimage"></slot>
-            <h2 id="descriptionheader">Description</h2>
-            <hr>
-            <slot name="description">
-            </slot>
-            <hr>
-        
-            <h2 id="powersheader">Powers</h2>
-            <hr>
-            
-              <div class="grid-container">
-                ${powers.map(power => 
-                  html`<span class="grid-item"> ${power} </span>`
-                  )}
-              </div>
-            <hr>
-        <section id="footer"></section>
+
+      <slot id="heroimage" name="heroimage"></slot>
+      <h2 id="descriptionheader">Description</h2>
+      <hr>
+      <slot name="description"></slot>
+      <hr>
+      <h2 id="powersheader">Powers</h2>
+      <hr>
+      <div class="grid-container">
+        ${powers.map(power => 
+          html`<span class="grid-item"> ${power} </span>`
+          )}
+      </div>
+      <hr>
+
+      <section id="footer"></section>
     `;
   }
 
 }
 
-// decodeURIComponent(import.meta);
+
 
 
 
