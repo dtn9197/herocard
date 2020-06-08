@@ -43,7 +43,7 @@ export class HeroCard extends SimpleColors {
         height: 25px;
       }
 
-      ::slotted(img) {
+      :host ::slotted(img) {
         border-top: 3px solid var(--hero-card-border, var(--simple-colors-default-theme-accent-5, #FFFFFF));
         border-bottom: 3px solid var(--hero-card-border, var(--simple-colors-default-theme-accent-5, #FFFFFF));
         width: 100%;
@@ -51,7 +51,7 @@ export class HeroCard extends SimpleColors {
       }
       
 
-      ::slotted(p) {
+      :host ::slotted(p) {
         height: 100px;
         overflow: auto;
         margin: 0px;
@@ -127,13 +127,13 @@ export class HeroCard extends SimpleColors {
       }
 
       :host([universe="dc"]) #header  {
-        background-image: var(--hero-card-header-image, url("../demo/assets/dcuniverse.jpg"));
+        background-image: var(--hero-card-header-image);
         background-size: cover;
         background-position: center; 
       }
 
       :host([universe="dc"]) #footer  {
-        background-image: var(--hero-card-header-image, url("../demo/assets/dcuniverse.jpg"));
+        background-image: var(--hero-card-header-image);
         background-size: cover; 
         background-position: center; 
       }
@@ -152,14 +152,14 @@ export class HeroCard extends SimpleColors {
       }
 
       :host([universe="marvel"]) #header  {
-        background-image: var(--hero-card-header-image,url("../demo/assets/marvel1.jpg"));
+        background-image: var(--hero-card-header-image);
         background-size: cover;
         
         
       }
 
       :host([universe="marvel"]) #footer  {
-        background-image: var(--hero-card-header-image, url("../demo/assets/marvel1.jpg"));
+        background-image: var(--hero-card-header-image);
         background-size: cover;
       }
 
