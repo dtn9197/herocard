@@ -13,9 +13,10 @@
     "@lrnwebcomponents/simple-colors": "^2.6.10",
     "@lrnwebcomponents/simple-colors-shared-styles": "^2.6.8",
     "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2"
+    "lit-html": "^1.1.2",
+    "es-dev-server": "^1.23.0"
   },
   "devDependencies": {
-    "es-dev-server": "^1.23.0"
+   
   }
 }
