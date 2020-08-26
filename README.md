@@ -1,3 +1,4 @@
+## this branch is meant to be pushed to heroku only
 # \<hero-card>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
