@@ -235,6 +235,8 @@ export class HeroCard extends SimpleColors {
 
 }
 
+window.customElements.define('hero-card', HeroCard);
+
 
 
 
