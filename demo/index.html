@@ -8,9 +8,24 @@
       grid-template-columns: auto auto auto auto auto;
       grid-row-gap: 25px;
     }
+    h1 {
+      background-color: white;
+      text-align: center;
+    }
 
     body {
       background-color: grey;
+    }
+    #explanation-box {
+      width: 900px;
+      margin: auto;
+      background-color: white;
+    }
+    #explanation-box p {
+      font-size: 1.2rem;
+    }
+    #explanation-box img {
+      width: 100%;
     }
 
 
@@ -112,7 +127,7 @@
 
 <body>
   <div id="demo"></div>
-
+<h1>Super Hero Cards</h1>
   <div class="grid-container">
     <div class="grid-item">
       <hero-card id="Batman" name="Batman" powers="Master Spy, Genius-Level Intellect, Master Martial Artist, Peak Human Conditioning, Expert Acrobat, Intimidation" universe="dc" type="Hero" >
@@ -147,12 +162,23 @@
         <p slot="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil qui molestias ipsam optio neque, quo illum sapiente repellendus earum laudantium, vitae officia sequi animi distinctio minus a, excepturi inventore vel explicabo reiciendis aperiam error. Officiis sunt soluta, inventore non dolor asperiores odit, voluptates excepturi est, nostrum ratione. Quasi, itaque optio!</p>
         <img slot="heroimage" src="assets/superman.jpg" alt="">
       </hero-card>
+      
 
     </div>
     
 
   </div>
   
+  <div id="explanation-box">
+    <h2>What is this?</h2>
+    <p>These are called web components!!! Web components are custom re-usable HTML markup that can be used across different webpages. The source code for those components is written once and can be re-used everywhere. Their CSS properties are encapsulated in the Shadow DOM which is isolated from the main DOM. This mean that they won't be affected by regular css selectors.
+    </p>
+
+    <h2>Use Case</h2>
+    <p>Card design pattern is very common in modern websites. They are used mostly to display information about people. This picture here is the executive team from Walmart's website. In this instance, leveraging web components will definitely boost productivity by saving development time.</p>
+    <img src="assets/walmart.png" alt="">
+    
+  </div>
   
   
 
